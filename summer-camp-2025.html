@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Intensives | Uday Waldorf × Cosmic Essence × Kautilya Jain</title>
+  <meta name="description" content="Two distinct summer programs at Uday Waldorf School: Acting + Drama with Kautilya Jain (Trinity College London), and Decision Making & Goal Setting with Atray Agrawal.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ce-orange: #F26522;
+      --ce-black: #111111;
+      --ce-off-white: #F9F6F1;
+      --ce-white: #FFFFFF;
+      --ce-dark-gray: #333333;
+      --ce-mid-gray: #666666;
+      --ce-light-gray: #E8E4DF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ce-dark-gray);
+      background: var(--ce-white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ce-black);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--ce-orange);
+      color: var(--ce-white);
+    }
+
+    .btn-primary:hover {
+      background: #d9551a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(242, 101, 34, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--ce-orange);
+      color: var(--ce-orange);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--ce-orange);
+      color: var(--ce-white);
+      transform: translateY(-3px);
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 16px 0;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .nav.visible {
+      transform: translateY(0);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ce-white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--ce-mid-gray);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--ce-orange);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--ce-black);
+      color: var(--ce-white);
+      padding: 140px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(242, 101, 34, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ce-orange);
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--ce-white);
+      margin-bottom: 24px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-sub {
+      font-size: 1.35rem;
+      color: var(--ce-mid-gray);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.4s forwards;
+    }
+
+    .hero-intro {
+      color: var(--ce-mid-gray);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-cta {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.8s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Partners strip */
+    .partners {
+      background: var(--ce-off-white);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--ce-light-gray);
+    }
+
+    .partners-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .partner-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--ce-mid-gray);
+      text-align: center;
+    }
+
+    .partner-item strong {
+      display: block;
+      color: var(--ce-black);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* Logo placeholder style */
+    .logo-placeholder {
+      width: 120px;
+      height: 60px;
+      background: var(--ce-light-gray);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 0.7rem;
+      color: var(--ce-mid-gray);
+    }
+
+    /* Section headers */
+    .section-intro {
+      padding: 100px 0 60px;
+      text-align: center;
+      background: var(--ce-white);
+    }
+
+    .section-intro h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+
+    .section-intro p {
+      color: var(--ce-mid-gray);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+
+    /* Program sections */
+    .program {
+      padding: 0 0 100px;
+    }
+
+    .program-header {
+      background: var(--ce-off-white);
+      padding: 80px 0;
+      margin-bottom: 60px;
+    }
+
+    .program-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--ce-orange);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .program-header h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .program-subtitle {
+      font-size: 1.25rem;
+      color: var(--ce-mid-gray);
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .program-content {
+      padding: 0 0 60px;
+    }
+
+    .program-description {
+      font-size: 1.125rem;
+      line-height: 1.9;
+      margin-bottom: 48px;
+      max-width: 750px;
+    }
+
+    /* Photo placeholder - only for facilitators */
+    .photo-placeholder {
+      background: linear-gradient(135deg, var(--ce-off-white) 0%, var(--ce-light-gray) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ce-mid-gray);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-placeholder.small {
+      height: 200px;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    /* Journey cards */
+    .journey-section {
+      margin: 60px 0;
+    }
+
+    .journey-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--ce-mid-gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .journey-card {
+      background: var(--ce-white);
+      border: 1px solid var(--ce-light-gray);
+      border-radius: 8px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .journey-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--ce-orange);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .journey-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .journey-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .journey-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--ce-black);
+    }
+
+    .journey-card p {
+      color: var(--ce-mid-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Cohorts */
+    .cohorts-section {
+      background: var(--ce-black);
+      color: var(--ce-white);
+      padding: 60px;
+      border-radius: 12px;
+      margin: 60px 0;
+    }
+
+    .cohorts-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--ce-orange);
+      letter-spacing: 0.15em;
+      margin-bottom: 32px;
+    }
+
+    .cohorts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+
+    .cohort-item {
+      border-left: 2px solid var(--ce-orange);
+      padding-left: 24px;
+    }
+
+    .cohort-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cohort-age {
+      font-size: 0.95rem;
+      color: var(--ce-mid-gray);
+      margin-bottom: 12px;
+    }
+
+    .cohort-dates {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--ce-orange);
+    }
+
+    /* Why section */
+    .why-section {
+      background: var(--ce-off-white);
+      padding: 80px 60px;
+      border-radius: 12px;
+      margin: 60px 0;
+    }
+
+    .why-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .why-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ce-dark-gray);
+    }
+
+    /* Educator */
+    .educator-section {
+      margin: 80px 0;
+      padding: 60px;
+      background: linear-gradient(135deg, var(--ce-off-white) 0%, var(--ce-white) 100%);
+      border-radius: 12px;
+      border: 1px solid var(--ce-light-gray);
+    }
+
+    .educator-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .educator-info h3 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .educator-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--ce-orange);
+      margin-bottom: 20px;
+    }
+
+    .educator-bio {
+      color: var(--ce-mid-gray);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .educator-meta {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--ce-light-gray);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--ce-mid-gray);
+    }
+
+    /* Price block */
+    .price-section {
+      background: var(--ce-black);
+      padding: 60px;
+      border-radius: 12px;
+      margin: 60px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .price-info h3 {
+      color: var(--ce-white);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .price-meta {
+      color: var(--ce-mid-gray);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+    }
+
+    .price-amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      color: var(--ce-white);
+      font-weight: 700;
+    }
+
+    /* Showcase */
+    .showcase {
+      background: var(--ce-orange);
+      color: var(--ce-white);
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .showcase h2 {
+      color: var(--ce-white);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .showcase p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.95;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* Enrollment */
+    .enrollment {
+      background: var(--ce-black);
+      color: var(--ce-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .enrollment h2 {
+      color: var(--ce-white);
+      font-size: 2.25rem;
+      margin-bottom: 16px;
+    }
+
+    .enrollment-subtitle {
+      color: var(--ce-mid-gray);
+      font-size: 1.125rem;
+      margin-bottom: 48px;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: left;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .pricing-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-5px);
+      border-color: var(--ce-orange);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--ce-orange);
+      background: rgba(242, 101, 34, 0.1);
+    }
+
+    .pricing-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .pricing-card h3 {
+      color: var(--ce-white);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .tagline {
+      color: var(--ce-mid-gray);
+      font-size: 0.9rem;
+    }
+
+    .pricing-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem;
+      color: var(--ce-white);
+      font-weight: 700;
+    }
+
+    .pricing-card.featured .price {
+      color: var(--ce-orange);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      color: var(--ce-mid-gray);
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--ce-orange);
+    }
+
+    .enrollment-meta {
+      color: var(--ce-mid-gray);
+      font-size: 0.9375rem;
+      margin-top: 48px;
+    }
+
+    .enrollment-meta a {
+      color: var(--ce-orange);
+      text-decoration: none;
+    }
+
+    /* FAQs */
+    .faqs {
+      padding: 100px 0;
+      background: var(--ce-white);
+    }
+
+    .faqs h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--ce-light-gray);
+      padding: 24px 0;
+    }
+
+    .faq-question {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--ce-black);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--ce-orange);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding-top: 16px;
+      color: var(--ce-mid-gray);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--ce-black);
+      color: var(--ce-mid-gray);
+      padding: 60px 0;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    .footer a {
+      color: var(--ce-orange);
+      text-decoration: none;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 60px;
+      }
+
+      .program-header {
+        padding: 60px 0;
+      }
+
+      .cohorts-section,
+      .why-section,
+      .educator-section,
+      .price-section {
+        padding: 40px 24px;
+      }
+
+      .educator-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">Summer Intensives</a>
+      <div class="nav-links">
+        <a href="#theater">Acting + Theater</a>
+        <a href="#decision">Decision Making</a>
+        <a href="#enroll">Enroll</a>
+      </div>
+      <a href="#enroll" class="btn btn-primary" style="padding: 12px 24px;">Enroll Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">UDAY WALDORF SCHOOL × COSMIC ESSENCE × KAUTILYA JAIN</span>
+      <h1>Summer Intensives</h1>
+      <p class="hero-sub">Two distinct programs. One shared finale.</p>
+      <p class="hero-intro">
+        Uday Waldorf School hosts two parallel intensives. One focuses on expression through theater.
+        The other on clarity through decision-making. Students choose one, or both. And together at the end, they share what they've built.
+      </p>
+      <div class="hero-cta">
+        <a href="#theater" class="btn btn-primary">Explore Programs</a>
+        <a href="#enroll" class="btn btn-outline" style="margin-left: 16px;">Enroll Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners">
+    <div class="container">
+      <div class="partners-inner">
+        <div style="text-align: center;">
+          <div class="logo-placeholder">[LOGO]</div>
+          <div class="partner-item">
+            <strong>Uday Waldorf School</strong>
+            Jaipur
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <div class="logo-placeholder">[LOGO]</div>
+          <div class="partner-item">
+            <strong>Cosmic Essence</strong>
+            Education
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <div class="logo-placeholder" style="background: var(--ce-off-white);">[PHOTO]</div>
+          <div class="partner-item">
+            <strong>Kautilya Jain</strong>
+            Trinity Drama Specialist
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Intro -->
+  <section class="section-intro">
+    <div class="container">
+      <h2>Choose Your Path</h2>
+      <p>Two programs running parallel. Same finale. Different journeys.</p>
+    </div>
+  </section>
+
+  <!-- Program 1: Acting + Theater -->
+  <section class="program" id="theater">
+    <div class="program-header">
+      <div class="container">
+        <span class="program-tag">13 DAYS · TRINITY COLLEGE LONDON</span>
+        <h2>Acting & Drama Intensive</h2>
+        <p class="program-subtitle">Physical theater, voice work, and performance for young actors</p>
+      </div>
+    </div>
+
+    <div class="container program-content">
+      <p class="program-description">
+        A two-week immersion in the craft of theater. Students work with their bodies, voices, and imagination
+        to build presence and confidence. Through scene study, improvisation, and ensemble work, participants
+        develop the ability to inhabit characters fully and perform with authenticity. Culminates in Trinity College London
+        exam preparation and a final showcase.
+      </p>
+
+      <!-- Session Journey -->
+      <div class="journey-section">
+        <div class="journey-title">Session Journey — 13 Days</div>
+        <div class="journey-grid">
+          <div class="journey-card">
+            <h4>Foundation & Play</h4>
+            <p>Drama games, vocal warm-ups, building ensemble trust</p>
+          </div>
+          <div class="journey-card">
+            <h4>Voice & Expression</h4>
+            <p>Speech clarity, tone, rhythm, and expressive reading</p>
+          </div>
+          <div class="journey-card">
+            <h4>Character & Story</h4>
+            <p>Character building, improvisation, scripted scenes</p>
+          </div>
+          <div class="journey-card">
+            <h4>Trinity Skill Tasks</h4>
+            <p>Practising exam-specific tasks: mime, poetry, prose</p>
+          </div>
+          <div class="journey-card">
+            <h4>Rehearsal & Refinement</h4>
+            <p>Mock exam sessions, peer feedback, polish</p>
+          </div>
+          <div class="journey-card">
+            <h4>Showcase for Parents</h4>
+            <p>Final performance for families, reflections & celebration</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Trinity -->
+      <div class="why-section">
+        <h3>Why Trinity?</h3>
+        <p>
+          Trinity College London drama exams are recognised worldwide. A certificate is something a student
+          carries in their portfolio for years — and working towards a real exam gives the whole experience a shape.
+          Students prepare, take it seriously, and finish with something real to show for it.
+        </p>
+      </div>
+
+      <!-- Cohorts -->
+      <div class="cohorts-section">
+        <div class="cohorts-title">TWO COHORTS · TWO SESSIONS — CHOOSE YOURS</div>
+        <div class="cohorts-grid">
+          <div class="cohort-item">
+            <div class="cohort-name">Junior Cohort</div>
+            <div class="cohort-age">Ages 6–8</div>
+            <div class="cohort-dates">18 May – 31 May 2026<br>OR<br>1 June – 14 June 2026</div>
+          </div>
+          <div class="cohort-item">
+            <div class="cohort-name">Senior Cohort</div>
+            <div class="cohort-age">Ages 8–14</div>
+            <div class="cohort-dates">18 May – 31 May 2026<br>OR<br>1 June – 14 June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 48px 0;">
+        <a href="#enroll" class="btn btn-primary">Enroll in Acting + Theater</a>
+      </div>
+
+      <!-- Educator -->
+      <div class="educator-section">
+        <div class="educator-grid">
+          <div class="photo-placeholder small">
+            [PHOTO]
+          </div>
+          <div class="educator-info">
+            <span class="program-tag">FACILITATOR</span>
+            <h3>Kautilya Jain</h3>
+            <div class="educator-role">Theatre Educator · Trinity Drama Specialist</div>
+            <p class="educator-bio">
+              8 years working with students of different age groups across Delhi, Mumbai and Pune.
+              The last 3 years focused exclusively on Trinity College London Drama exam preparation —
+              both Speech & Drama and Acting streams. His approach uses drama as a vehicle for building
+              genuine confidence, not just performance skill.
+            </p>
+            <div class="educator-meta">
+              Worked in: Delhi · Mumbai · Pune · Jaipur
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="price-section">
+        <div class="price-info">
+          <h3>Acting + Theater Intensive</h3>
+          <div class="price-meta">13 Days · Trinity College London Preparation</div>
+        </div>
+        <div class="price-amount">₹8,500</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program 2: Decision Making and Goal Setting -->
+  <section class="program" id="decision">
+    <div class="program-header" style="background: var(--ce-white);">
+      <div class="container">
+        <span class="program-tag">7 DAYS · PHYSICS-BASED MENTAL MODELS</span>
+        <h2>Decision Making & Goal Setting Intensive</h2>
+        <p class="program-subtitle">How to think clearly under uncertainty, using physics-based mental models</p>
+      </div>
+    </div>
+
+    <div class="container program-content">
+      <p class="program-description">
+        An intensive for 10+ year olds who want to learn how founders think. We use physics concepts as thinking
+        tools — not because students need to become physicists, but because these models work. First Principles
+        to strip away assumptions. Inversion to avoid pitfalls. Flywheels to build momentum. By the end, each
+        student has a one-year plan for something that matters to them.
+      </p>
+
+      <!-- The Problem -->
+      <div class="why-section" style="background: var(--ce-white); border: 1px solid var(--ce-light-gray);">
+        <h3>The Problem We're Solving</h3>
+        <p style="margin-top: 20px;">
+          The world is getting more complex. Information overload. Option overload. Opinion overload.
+          Schools teach compliance, not independence. Parents want to help, but they can't see inside their child's mind.
+        </p>
+        <p style="margin-top: 20px;">
+          Students face <strong>decision paralysis</strong> (freeze or outsource to parents),
+          <strong>goal confusion</strong> (passion without a path), and <strong>follow-through failure</strong>
+          (systems beat willpower). This intensive teaches two timeless skills that cut through the noise.
+        </p>
+      </div>
+
+      <!-- The 7-Day Journey -->
+      <div class="journey-section">
+        <div class="journey-title">The Journey — 7 Days, 7 Tools, 1 Complete System</div>
+        <div class="journey-grid">
+          <div class="journey-card">
+            <h4>Day 1: Decision Audit</h4>
+            <p>Students map past decisions and learn: Good decisions ≠ good outcomes. They audit 3 decisions, identify patterns, and map their energy.</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 2: Thought Experiments</h4>
+            <p>"Travel" to two possible futures. Practice the Einstein method: simulate before deciding. Plus inversion: "How could this year fail?"</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 3: Strategy of Approximation</h4>
+            <p>Start with ideal vision, add constraints. Learn SMART vs. BHAG goals. Choose 3 Rocks through elimination rounds.</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 4: Bottleneck Analysis</h4>
+            <p>Map the week as a system. Find the constraint. Build a Personal Operating System: Vision, Mission, Values, Code of Conduct.</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 5: Leverage Decision</h4>
+            <p>Using the Four Levers (Labor, Capital, Code, Media), find where effort multiplies. Design ONE leverage-based ritual.</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 6: One-Way vs. Two-Way Doors</h4>
+            <p>Red Team exercise. Learn reversibility: commit to One-Way Doors, stay flexible on Two-Way Doors. Design a Review System.</p>
+          </div>
+          <div class="journey-card">
+            <h4>Day 7: Atomic Decisions</h4>
+            <p>Public pitch of Annual Plan. Formal commitment ceremony. "Do you witness my commitment?" Leave as architects of their lives.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What You Leave With -->
+      <div class="why-section">
+        <h3>What You Leave With — A Complete System</h3>
+        <p style="margin-top: 20px;">
+          Not theory. Four tangible tools students use for the entire year:
+        </p>
+        <p style="margin-top: 16px;">
+          <strong>Bound Annual Plan Journal</strong> — Past audit, 3 Rocks, Operating System, Ritual design, Review questions.<br><br>
+          <strong>Living Calendar</strong> — Full-year chart with movable sticky notes for goal dates. A living document, not a prison.<br><br>
+          <strong>One Leverage Ritual</strong> — So small it's impossible to fail. Trigger → Action → Reward.<br><br>
+          <strong>Review System</strong> — Questions for daily (2 min), weekly (15 min), monthly (30 min), quarterly (1 hour), and yearly reviews.
+        </p>
+      </div>
+
+      <!-- Cohorts -->
+      <div class="cohorts-section">
+        <div class="cohorts-title">FOUR COHORTS — CHOOSE YOURS</div>
+        <div class="cohorts-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 1</div>
+            <div class="cohort-age">Ages 10+</div>
+            <div class="cohort-dates">18–24 May</div>
+          </div>
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 2</div>
+            <div class="cohort-age">Ages 10+</div>
+            <div class="cohort-dates">25–31 May</div>
+          </div>
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 3</div>
+            <div class="cohort-age">Ages 10+</div>
+            <div class="cohort-dates">1–7 June</div>
+          </div>
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 4</div>
+            <div class="cohort-age">Ages 10+</div>
+            <div class="cohort-dates">8–14 June</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 48px 0;">
+        <a href="#enroll" class="btn btn-primary">Enroll in Decision Making & Goal Setting Intensive</a>
+      </div>
+
+      <!-- Educator -->
+      <div class="educator-section">
+        <div class="educator-grid">
+          <div class="photo-placeholder small">
+            [PHOTO]
+          </div>
+          <div class="educator-info">
+            <span class="program-tag">FACILITATOR</span>
+            <h3>Atray Agrawal</h3>
+            <div class="educator-role">Founder, Cosmic Essence Education</div>
+            <p class="educator-bio">
+              Serial entrepreneur, physics teacher, and founder of Cosmic Essence Education. 5+ ventures built.
+              159+ students taught. Believes the entrepreneurial mindset must be built during high school —
+              not stumbled into later. Featured in Times of India, DNA, and City Radio.
+            </p>
+            <div class="educator-meta">
+              5+ Ventures · 159+ Students · 8 Years Building Communities
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="price-section">
+        <div class="price-info">
+          <h3>Decision Making & Goal Setting Intensive</h3>
+          <div class="price-meta">7 Days · 4 Cohorts · Ages 10+</div>
+        </div>
+        <div class="price-amount">₹5,500</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section class="showcase">
+    <div class="container">
+      <h2>The Showcase</h2>
+      <p>
+        Two finale evenings where both programs come together. On <strong>31st May</strong>, the Acting + Theater
+        Junior cohort (ages 6–8) presents alongside Decision Making & Goal Setting Cohorts 1 & 2.
+        On <strong>14th June</strong>, the Acting + Theater Senior cohort (ages 8–14) presents alongside
+        Decision Making & Goal Setting Cohorts 3 & 4. Parents witness what focused, intentional work produces —
+        and students leave with something they built, not just something they learned.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faqs">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">[Acting + Theater] What ages is this for?</div>
+        <div class="faq-answer">
+          <p>Ages 6–14, split into Junior (6–8) and Senior (8–14) cohorts. Both age groups run during both sessions (May 18–31 and June 1–14), so you can choose the dates that work for your family.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">[Decision Making] What ages is this for?</div>
+        <div class="faq-answer">
+          <p>Ages 10+, with mixed cohorts. Same exercises, different complexity. Younger students (10–13) get more guidance and visual tools. Older students (14–18) work independently and naturally mentor younger ones. The physics concepts work across all ages.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">[Decision Making] My child is already smart. Is this still valuable?</div>
+        <div class="faq-answer">
+          <p>Absolutely. This isn't academic tutoring. It's decision-making and goal-setting. Many high-achievers excel at following directions but struggle with independent direction. This teaches them to be the author of their own life, not just a high-performing follower.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">[Decision Making] What if my child doesn't know what they want?</div>
+        <div class="faq-answer">
+          <p>Perfect. Day 2 is specifically designed for this — we use "thought experiments" to explore possibilities before committing. Many students come in uncertain and leave with clarity. The process itself reveals what matters to them.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">[Both Programs] What if my child misses a day?</div>
+        <div class="faq-answer">
+          <p>Each day builds on the previous. Missing one day is manageable (we provide catch-up materials). Missing two or more significantly impacts the experience. We recommend committing to all days.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">[Both Programs] Can my child do both programs?</div>
+        <div class="faq-answer">
+          <p>Yes! Students 10+ can enroll in both. They'd attend the Decision Making & Goal Setting Cohort 2 (May 25–31) which overlaps with the second week of Acting + Theater (May 18–31). Or Cohort 4 (June 8–14) which overlaps with the second week of Acting + Theater (June 1–14). They get the full experience: theater in the mornings, decision-making in the afternoons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment -->
+  <section class="enrollment" id="enroll">
+    <div class="container">
+      <div style="margin-bottom: 32px;">
+        <div class="logo-placeholder" style="margin: 0 auto 16px; background: rgba(255,255,255,0.1);">[LOGO]</div>
+      </div>
+      <h2>Choose Your Program</h2>
+      <p class="enrollment-subtitle">Two paths. One finale. What will your child build?</p>
+
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <div>
+              <h3>Acting + Theater</h3>
+              <div class="tagline">13 Days · Trinity College London</div>
+            </div>
+            <div class="price">₹8,500</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Junior (6–8) or Senior (8–14) cohort</li>
+            <li>May 18–31 or June 1–14</li>
+            <li>Trinity exam preparation</li>
+            <li>Final showcase performance</li>
+            <li>Certificate of completion</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <div>
+              <h3>Decision Making & Goal Setting</h3>
+              <div class="tagline">7 Days · Physics-Based Models</div>
+            </div>
+            <div class="price">₹5,500</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Ages 10+ · 4 cohorts to choose from</li>
+            <li>7 physics-based decision tools</li>
+            <li>Bound Annual Plan Journal</li>
+            <li>Living Calendar + Review System</li>
+            <li>Final showcase presentation</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-card-header">
+            <div>
+              <h3>Both Programs</h3>
+              <div class="tagline">Full Experience · Ages 10+</div>
+            </div>
+            <div class="price">₹14,000</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Everything in both programs</li>
+            <li>Theater mornings + Decision afternoons</li>
+            <li>Two deliverables: Performance + Plan</li>
+            <li>Best value — save ₹500</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Single CTA -->
+      <a href="https://rzp.io/l/summer-intensive-2025-[PLACEHOLDER]" class="btn btn-primary" style="font-size: 1rem; padding: 20px 60px;">
+        Enroll Now
+      </a>
+
+      <p class="enrollment-meta">
+        Summer Intensives at Uday Waldorf School, Jaipur.<br>
+        Questions? <a href="https://wa.me/918742017911">WhatsApp</a> or <a href="mailto:atray@cosmicessence.co.in">email</a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 32px; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="width: 100px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+            <span style="font-size: 0.65rem; color: var(--ce-mid-gray);">[LOGO]</span>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--ce-mid-gray);">Uday Waldorf School</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 100px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+            <span style="font-size: 0.65rem; color: var(--ce-mid-gray);">[LOGO]</span>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--ce-mid-gray);">Cosmic Essence Education</div>
+        </div>
+      </div>
+      <p>© 2025 Uday Waldorf School × Cosmic Essence Education × Kautilya Jain</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation show/hide on scroll
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      // Show nav after scrolling past hero
+      if (currentScroll > 400) {
+        nav.classList.add('visible');
+      } else {
+        nav.classList.remove('visible');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isActive = faqItem.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        // Open clicked if not already active
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
