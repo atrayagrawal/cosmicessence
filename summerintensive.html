@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Summer Intensives | Uday Waldorf Inspired School × Cosmic Essence × Kautilya Jain</title>
-  <meta name="description" content="Two Summer Programs at Uday Waldorf School: Acting + Drama with Kautilya Jain (Trinity College London), and Decision Making & Goal Setting with Atray Agrawal.">
+  <title>Summer Intensive '26 | Uday Waldorf Inspired School × Cosmic Essence × Kautilya Jain</title>
+  <meta name="description" content="Two distinct summer programs at Uday Waldorf Inspired School: Acting & Drama with Kautilya Jain, and Decision Making & Goal Setting with Atray Agrawal.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -248,18 +248,22 @@
       margin-bottom: 4px;
     }
 
-    /* Logo placeholder style */
-    .logo-placeholder {
+    /* Logo style */
+    .partner-logo {
       width: 120px;
       height: 60px;
-      background: var(--ce-light-gray);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: contain;
       margin: 0 auto 8px;
-      font-size: 0.7rem;
-      color: var(--ce-mid-gray);
+      display: block;
+    }
+
+    .partner-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 8px;
+      display: block;
     }
 
     /* Section headers */
@@ -324,24 +328,13 @@
       max-width: 750px;
     }
 
-    /* Photo placeholder - only for facilitators */
-    .photo-placeholder {
-      background: linear-gradient(135deg, var(--ce-off-white) 0%, var(--ce-light-gray) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ce-mid-gray);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .photo-placeholder.small {
-      height: 200px;
+    /* Educator photo */
+    .educator-photo {
       width: 200px;
-      margin: 0 auto;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Journey cards */
@@ -773,14 +766,33 @@
       text-decoration: none;
     }
 
+    .footer-logo {
+      width: 100px;
+      height: 50px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .hero {
         padding: 100px 0 60px;
       }
 
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .hero-sub {
+        font-size: 1.1rem;
+      }
+
       .program-header {
         padding: 60px 0;
+      }
+
+      .program-header h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
       }
 
       .cohorts-section,
@@ -790,13 +802,82 @@
         padding: 40px 24px;
       }
 
+      .cohorts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cohort-item {
+        border-left: none;
+        border-top: 2px solid var(--ce-orange);
+        padding-left: 0;
+        padding-top: 20px;
+      }
+
       .educator-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
 
+      .educator-photo {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+      }
+
       .nav-links {
         display: none;
+      }
+
+      .faq-question {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 8px 0;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        font-size: 0.8rem;
+      }
+
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card {
+        padding: 32px 24px;
+      }
+
+      .partners-inner {
+        gap: 40px;
+      }
+
+      .partner-logo {
+        width: 100px;
+        height: 50px;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .journey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-amount {
+        font-size: 2rem;
+      }
+
+      .pricing-card-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .pricing-card .price {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -808,11 +889,11 @@
     <div class="container nav-inner">
       <a href="#" class="nav-logo">Summer Intensives</a>
       <div class="nav-links">
-        <a href="#theater">Acting + Drama</a>
+        <a href="#theater">Acting & Drama</a>
         <a href="#decision">Decision Making</a>
-        <a target="_blank" href="https://rzp.io/rzp/summerintensive">Enroll</a>
+        <a href="#enroll">Enroll</a>
       </div>
-      <a target="_blank" href="https://rzp.io/rzp/summerintensive" class="btn btn-primary" style="padding: 12px 24px;">Enroll Now</a>
+      <a href="https://pages.razorpay.com/summerintensive" target="_blank" class="btn btn-primary" style="padding: 12px 24px;">Enroll Now</a>
     </div>
   </nav>
 
@@ -820,15 +901,14 @@
   <section class="hero">
     <div class="container">
       <span class="hero-badge">UDAY WALDORF INSPIRED SCHOOL × COSMIC ESSENCE × KAUTILYA JAIN</span>
-      <h1>Summer Intensives '26</h1>
+      <h1>Summer Intensive '26</h1>
       <p class="hero-sub">This Summer - Express Yourself and Know Yourself.</p>
       <p class="hero-intro">
-        Uday Waldorf Inspired School is hosting 2 Summer Intensives for children aged 6-15.
-        The Theatre Intensive will focus on finding your voice, children will learn to express clearly, embody characters and perform with confidence. The Decision Making and Goal Setting Intensive will help you think clearly and act with intention, children will learn how to set goals, think through choices, and build habits that carry them through school and beyond.
+        Uday Waldorf Inspired School is hosting 2 Summer Intensives for children aged 6-17. The Theatre Intensive will focus on finding your voice, children will learn to express clearly, embody characters and perform with confidence. The Decision Making and Goal Setting Intensive will help you think clearly and act with intention, children will learn how to set goals, think through choices, and build habits that carry them through school and beyond.
       </p>
       <div class="hero-cta">
         <a href="#theater" class="btn btn-primary">Explore Programs</a>
-        <a target="_blank" href="https://rzp.io/rzp/summerintensive" class="btn btn-outline" style="margin-left: 16px;">Enroll Now</a>
+        <a href="https://pages.razorpay.com/summerintensive" target="_blank" class="btn btn-outline" style="margin-left: 16px;">Enroll Now</a>
       </div>
     </div>
   </section>
@@ -838,7 +918,7 @@
     <div class="container">
       <div class="partners-inner">
         <div style="text-align: center;">
-          <img src="uday-waldorf-logo.png" alt="Uday Waldorf Inspired School" style="height: 60px; width: auto;">
+          <img src="uday-waldorf-logo.png" alt="Uday Waldorf Inspired School" class="partner-logo">
           <div class="partner-item">
             <strong>Uday Waldorf Inspired School</strong>
             Jaipur
@@ -846,7 +926,7 @@
         </div>
 
         <div style="text-align: center;">
-          <img src="cosmic-essence-logo.png" alt="Cosmic Essence Education" style="height: 60px; width: auto;">
+          <img src="cosmic-essence-logo.png" alt="Cosmic Essence Education" class="partner-logo">
           <div class="partner-item">
             <strong>Cosmic Essence</strong>
             Education
@@ -854,7 +934,7 @@
         </div>
 
         <div style="text-align: center;">
-          <img src="kautilya.jpeg" alt="Kautilya Jain" style="height: 60px; width: auto;">
+          <img src="kautilya.jpeg" alt="Kautilya Jain" class="partner-photo">
           <div class="partner-item">
             <strong>Kautilya Jain</strong>
             Theatre Educator
@@ -868,15 +948,15 @@
   <section class="section-intro">
     <div class="container">
       <h2>Choose Your Path</h2>
-      <p>This summer, children can choose to find their voice through theatre, or sharpen their thinking through decision-making, and come together at the end for a final showcase, to share what they've built.</p>
+      <p>Two programs running parallel. Same finale. Different journeys.</p>
     </div>
   </section>
 
-  <!-- Program 1: Acting + Theater -->
+  <!-- Program 1: Acting & Drama -->
   <section class="program" id="theater">
     <div class="program-header">
       <div class="container">
-        <span class="program-tag">13 DAYS · TRINITY COLLEGE LONDON</span>
+        <span class="program-tag">13 DAYS · TRINITY COLLEGE LONDON CURRICULUM</span>
         <h2>Acting & Drama Intensive</h2>
         <p class="program-subtitle">Physical theatre, voice work, and performance for young actors</p>
       </div>
@@ -892,28 +972,28 @@
         <div class="journey-title">Session Journey — 13 Days</div>
         <div class="journey-grid">
           <div class="journey-card">
-            <h4>Foundation & Play</h4>
+            <h4>Day 1–2: Foundation & Play</h4>
             <p>Drama games, vocal warm-ups, and building ensemble trust to create a safe creative space.</p>
           </div>
           <div class="journey-card">
-            <h4>Voice & Expression</h4>
+            <h4>Day 3–4: Voice & Expression</h4>
             <p>Focusing on speech clarity, tone, rhythm, and the art of expressive reading.</p>
           </div>
           <div class="journey-card">
-            <h4>Character & Story</h4>
+            <h4>Day 5–7: Character & Story</h4>
             <p>Deep dive into character building, improvisation, and working through scripted scenes.</p>
           </div>
           <div class="journey-card">
-            <h4>Trinity Skill Tasks</h4>
+            <h4>Day 8–10: Trinity Skill Tasks</h4>
             <p>Intensive practice of exam-specific tasks, including mime, poetry, and prose performance.</p>
           </div>
           <div class="journey-card">
-            <h4>Rehearsal & Refinement</h4>
-            <p>Mock exam sessions, peer feedback, polish</p>
+            <h4>Day 11–12: Rehearsal & Refinement</h4>
+            <p>Mock exam sessions and peer feedback to polish the performance to a professional standard.</p>
           </div>
           <div class="journey-card">
-            <h4>Showcase for Parents</h4>
-            <p>Final performance for families, reflections & celebration</p>
+            <h4>Day 13: Showcase for Parents</h4>
+            <p>Final performance for families, certificate reflections, and a celebration of the 13-day journey.</p>
           </div>
         </div>
       </div>
@@ -928,42 +1008,16 @@
         </p>
       </div>
 
-      <!-- Cohorts -->
-      <div class="cohorts-section">
-        <div class="cohorts-title">TWO COHORTS · TWO SESSIONS — CHOOSE YOURS</div>
-        <div class="cohorts-grid">
-          <div class="cohort-item">
-            <div class="cohort-name">Junior Cohort</div>
-            <div class="cohort-age">Ages 6–8</div>
-            <div class="cohort-dates">18 May – 31 May 2026<br>OR<br>1 June – 14 June 2026</div>
-          </div>
-          <div class="cohort-item">
-            <div class="cohort-name">Senior Cohort</div>
-            <div class="cohort-age">Ages 8–14</div>
-            <div class="cohort-dates">18 May – 31 May 2026<br>OR<br>1 June – 14 June 2026</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div style="text-align: center; margin: 48px 0;">
-        <a href="https://rzp.io/rzp/summerintensive" class="btn btn-primary">Enroll in Acting + Theater</a>
-      </div>
-
       <!-- Educator -->
       <div class="educator-section">
         <div class="educator-grid">
-          <img src="kautilya.jpeg" alt="Kautilya Jain" style="width: 200px; height: 200px; border-radius: 50%; object-fit:
-   cover;">
+          <img src="kautilya.jpeg" alt="Kautilya Jain" class="educator-photo">
           <div class="educator-info">
             <span class="program-tag">FACILITATOR</span>
             <h3>Kautilya Jain</h3>
-            <div class="educator-role">Theatre Educator · Trinity Drama Specialist</div>
+            <div class="educator-role">Drama Educator & Theatre Director · Trinity Drama Specialist</div>
             <p class="educator-bio">
-              8 years working with students of different age groups across Delhi, Mumbai and Pune.
-              The last 3 years focused exclusively on Trinity College London Drama exam preparation —
-              both Speech & Drama and Acting streams. His approach uses drama as a vehicle for building
-              genuine confidence, not just performance skill.
+              8 years working with students of different age groups across schools like Heritage Experiential, Shiv Nadar School, and Teach for India both as a Drama educator and Theatre Director. The last 3 years also focused on Trinity College London Drama exam preparation. His approach uses drama as a vehicle for building confidence, starting dialogue, & understanding the world around.
             </p>
             <div class="educator-meta">
               Worked in: Delhi · Mumbai · Pune · Jaipur
@@ -973,12 +1027,42 @@
       </div>
 
       <!-- Price -->
-      <div class="price-section">
-        <div class="price-info">
-          <h3>Acting + Theater Intensive</h3>
-          <div class="price-meta">13 Days · Trinity College London Preparation</div>
+      <div class="price-section" style="flex-direction: column; align-items: flex-start;">
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div class="price-info">
+            <h3>Acting & Drama Intensive</h3>
+            <div class="price-meta">13 Days · Trinity Curriculum Preparation</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: var(--ce-mid-gray); text-decoration: line-through;">₹8,500</div>
+            <div class="price-amount" style="color: var(--ce-orange);">₹8,000</div>
+          </div>
         </div>
-        <div class="price-amount">₹8,500</div>
+        <div style="width: 100%; background: rgba(242, 101, 34, 0.2); border: 1px solid var(--ce-orange); border-radius: 4px; padding: 12px 16px; margin-top: 16px; text-align: center;">
+          <span style="color: var(--ce-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 600;">⚡ EARLY BIRD PRICING — Valid until May 10, 2026</span>
+        </div>
+      </div>
+
+      <!-- Cohorts -->
+      <div class="cohorts-section">
+        <div class="cohorts-title">TWO COHORTS · TWO AGE GROUPS — CHOOSE YOURS</div>
+        <div class="cohorts-grid">
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 1</div>
+            <div class="cohort-age">Ages 6–8 (Junior) | 8–14 (Senior)</div>
+            <div class="cohort-dates">18th May – 31st May 2026</div>
+          </div>
+          <div class="cohort-item">
+            <div class="cohort-name">Cohort 2</div>
+            <div class="cohort-age">Ages 6–8 (Junior) | 8–14 (Senior)</div>
+            <div class="cohort-dates">1st June – 14th June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 48px 0;">
+        <a href="https://pages.razorpay.com/summerintensive" target="_blank" class="btn btn-primary">Enroll in Acting & Drama</a>
       </div>
     </div>
   </section>
@@ -987,31 +1071,25 @@
   <section class="program" id="decision">
     <div class="program-header" style="background: var(--ce-white);">
       <div class="container">
-        <span class="program-tag">7 DAYS · PHYSICS-BASED MENTAL MODELS</span>
+        <span class="program-tag">7 DAYS · ENTREPRENEURIAL MENTAL MODELS</span>
         <h2>Decision Making & Goal Setting Intensive</h2>
-        <p class="program-subtitle">How to think clearly under uncertainty, using physics-based mental models</p>
+        <p class="program-subtitle">How to think clearly under uncertainty, and creating your own path in life, using mental models and techniques from world's best founders, entreprenuers and thinkers.</p>
       </div>
     </div>
 
     <div class="container program-content">
       <p class="program-description">
-        An intensive for 10+ year olds who want to learn how founders think. We use physics concepts as thinking
-        tools — not because students need to become physicists, but because these models work. First Principles
-        to strip away assumptions. Inversion to avoid pitfalls. Flywheels to build momentum. By the end, each
-        student has a one-year plan for something that matters to them.
+        A 7-day intensive for students aged 10+, that teaches two skills that are extremely important: how to make decisions and how to set goals. Using mental models and evidence-based systems, students leave with a one-year plan and a personal system of goal setting and review they can actually use, year after year.
       </p>
 
       <!-- The Problem -->
       <div class="why-section" style="background: var(--ce-white); border: 1px solid var(--ce-light-gray);">
         <h3>The Problem We're Solving</h3>
         <p style="margin-top: 20px;">
-          The world is getting more complex. Information overload. Option overload. Opinion overload.
-          Schools teach compliance, not independence. Parents want to help, but they can't see inside their child's mind.
+          Every day, students face too many choices with no framework to handle them. They either freeze, follow someone else's opinion, or depend on parents for clarity. Drifing through without any clear direction of path of their own. Decision-making is a muscle, and right now, we are not really actively helping them build it.
         </p>
         <p style="margin-top: 20px;">
-          Students face <strong>decision paralysis</strong> (freeze or outsource to parents),
-          <strong>goal confusion</strong> (passion without a path), and <strong>follow-through failure</strong>
-          (systems beat willpower). This intensive teaches two timeless skills that cut through the noise.
+          But decision making is a skill. Goal setting is a skill. And skills can be learnt. This workshop will help the students to think clearly and decide with conviction, set a strong direction for themselves and set up real goals, and thereby take responsibility of their choices.
         </p>
       </div>
 
@@ -1021,31 +1099,31 @@
         <div class="journey-grid">
           <div class="journey-card">
             <h4>Day 1: Decision Audit</h4>
-            <p>Students map past decisions and learn: Good decisions ≠ good outcomes. They audit 3 decisions, identify patterns, and map their energy.</p>
+            <p>Look back at 3 decisions you've made. Find patterns in how you think and when you're at your best.</p>
           </div>
           <div class="journey-card">
             <h4>Day 2: Thought Experiments</h4>
-            <p>"Travel" to two possible futures. Practice the Einstein method: simulate before deciding. Plus inversion: "How could this year fail?"</p>
+            <p>Imagine two different futures before choosing one. Ask: "How could this go wrong?" before it does. Learn Inversion Thinking.</p>
           </div>
           <div class="journey-card">
             <h4>Day 3: Strategy of Approximation</h4>
-            <p>Start with ideal vision, add constraints. Learn SMART vs. BHAG goals. Choose 3 Rocks through elimination rounds.</p>
+            <p>Start with what you want. Work backwards through real constraints. Pick your 3 biggest goals for the year.</p>
           </div>
           <div class="journey-card">
             <h4>Day 4: Bottleneck Analysis</h4>
-            <p>Map the week as a system. Find the constraint. Build a Personal Operating System: Vision, Mission, Values, Code of Conduct.</p>
+            <p>Find what's slowing you down. Build your personal system: what you stand for, how you work, what you won't give up.</p>
           </div>
           <div class="journey-card">
             <h4>Day 5: Leverage Decision</h4>
-            <p>Using the Four Levers (Labor, Capital, Code, Media), find where effort multiplies. Design ONE leverage-based ritual.</p>
+            <p>Find the one habit that makes everything else easier. Design it so it's impossible to skip.</p>
           </div>
           <div class="journey-card">
             <h4>Day 6: One-Way vs. Two-Way Doors</h4>
-            <p>Red Team exercise. Learn reversibility: commit to One-Way Doors, stay flexible on Two-Way Doors. Design a Review System.</p>
+            <p>Learn which decisions need full commitment and which ones you can test first. Build a review habit.</p>
           </div>
           <div class="journey-card">
             <h4>Day 7: Atomic Decisions</h4>
-            <p>Public pitch of Annual Plan. Formal commitment ceremony. "Do you witness my commitment?" Leave as architects of their lives.</p>
+            <p>Present your annual plan. Make a commitment. Leave as someone who owns their future.</p>
           </div>
         </div>
       </div>
@@ -1054,14 +1132,49 @@
       <div class="why-section">
         <h3>What You Leave With — A Complete System</h3>
         <p style="margin-top: 20px;">
-          Not theory. Four tangible tools students use for the entire year:
+          Four tangible tools students use for the entire year:
         </p>
         <p style="margin-top: 16px;">
-          <strong>Bound Annual Plan Journal</strong> — Past audit, 3 Rocks, Operating System, Ritual design, Review questions.<br><br>
-          <strong>Living Calendar</strong> — Full-year chart with movable sticky notes for goal dates. A living document, not a prison.<br><br>
-          <strong>One Leverage Ritual</strong> — So small it's impossible to fail. Trigger → Action → Reward.<br><br>
-          <strong>Review System</strong> — Questions for daily (2 min), weekly (15 min), monthly (30 min), quarterly (1 hour), and yearly reviews.
+          <strong>Bullet Journal</strong> — With their Past audits, 3 Rocks (top most goals), Decision Making Frameworks, Self Ritual design, and Robust Review System.<br><br>
+          <strong>Annual Calendar</strong> — Full-year chart with movable sticky notes for goal dates. A living document, that can be modified in the future as needed.<br><br>
+          <strong>One High-Leverage Ritual</strong> — So small it's impossible to fail. Small actions bringing Big Impact.<br><br>
+          <strong>Review System</strong> — Questions for daily, weekly, monthly, quarterly, and yearly reviews.
         </p>
+      </div>
+
+      <!-- Educator -->
+      <div class="educator-section">
+        <div class="educator-grid">
+          <img src="atray.jpg" alt="Mr. Atray Agrawal" class="educator-photo">
+          <div class="educator-info">
+            <span class="program-tag">FACILITATOR</span>
+            <h3>Atray Agrawal</h3>
+            <div class="educator-role">Founder, Cosmic Essence Education</div>
+            <p class="educator-bio">
+              Serial Entrepreneur, Physics Teacher, and Founder of Cosmic Essence Education. He strongly believes that entrepreneurial mindset must be built during high school and not just stumbled into later. Featured in Times of India, DNA, and City Radio.
+            </p>
+            <div class="educator-meta">
+              159+ Students · 8 Years Building Communities and Ventures · Over a Decade of Entrepreneurship Research.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="price-section" style="flex-direction: column; align-items: flex-start;">
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div class="price-info">
+            <h3>Decision Making & Goal Setting Intensive</h3>
+            <div class="price-meta">7 Days · 4 Cohorts · Ages 10+</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: var(--ce-mid-gray); text-decoration: line-through;">₹5,500</div>
+            <div class="price-amount" style="color: var(--ce-orange);">₹5,000</div>
+          </div>
+        </div>
+        <div style="width: 100%; background: rgba(242, 101, 34, 0.2); border: 1px solid var(--ce-orange); border-radius: 4px; padding: 12px 16px; margin-top: 16px; text-align: center;">
+          <span style="color: var(--ce-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 600;">⚡ EARLY BIRD PRICING — Valid until May 10, 2026</span>
+        </div>
       </div>
 
       <!-- Cohorts -->
@@ -1081,49 +1194,19 @@
           <div class="cohort-item">
             <div class="cohort-name">Cohort 3</div>
             <div class="cohort-age">Ages 10+</div>
-            <div class="cohort-dates">1–7 June</div>
+            <div class="cohort-dates">1st–7th June</div>
           </div>
           <div class="cohort-item">
             <div class="cohort-name">Cohort 4</div>
             <div class="cohort-age">Ages 10+</div>
-            <div class="cohort-dates">8–14 June</div>
+            <div class="cohort-dates">8th–14th June</div>
           </div>
         </div>
       </div>
 
       <!-- CTA -->
       <div style="text-align: center; margin: 48px 0;">
-        <a href="https://rzp.io/rzp/summerintensive" class="btn btn-primary">Enroll in Decision Making & Goal Setting Intensive</a>
-      </div>
-
-      <!-- Educator -->
-      <div class="educator-section">
-        <div class="educator-grid">
-          <img src="atray.jpg" alt="Atray Agrawal" style="width: 200px; height: 200px; border-radius: 50%; object-fit:
-   cover;">
-          <div class="educator-info">
-            <span class="program-tag">FACILITATOR</span>
-            <h3>Atray Agrawal</h3>
-            <div class="educator-role">Founder, Cosmic Essence Education</div>
-            <p class="educator-bio">
-              Serial entrepreneur, physics teacher, and founder of Cosmic Essence Education. 5+ ventures built.
-              159+ students taught. Believes the entrepreneurial mindset must be built during high school —
-              not stumbled into later. Featured in Times of India, DNA, and City Radio.
-            </p>
-            <div class="educator-meta">
-              5+ Ventures · 159+ Students · 8 Years Building Communities
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Price -->
-      <div class="price-section">
-        <div class="price-info">
-          <h3>Decision Making & Goal Setting Intensive</h3>
-          <div class="price-meta">7 Days · 4 Cohorts · Ages 10+</div>
-        </div>
-        <div class="price-amount">₹5,500</div>
+        <a href="https://pages.razorpay.com/summerintensive" target="_blank" class="btn btn-primary">Enroll in Decision Making & Goal Setting Intensive</a>
       </div>
     </div>
   </section>
@@ -1132,12 +1215,13 @@
   <section class="showcase">
     <div class="container">
       <h2>The Showcase</h2>
+      <p style="font-size: 1.35rem; max-width: 800px;">
+        <strong>
+A culmination of the focused, intentional work by the students.
+	</strong>
+      </p>
       <p>
-        Two finale evenings where both programs come together. On <strong>31st May</strong>, the Acting + Theater
-        Junior cohort (ages 6–8) presents alongside Decision Making & Goal Setting Cohorts 1 & 2.
-        On <strong>14th June</strong>, the Acting + Theater Senior cohort (ages 8–14) presents alongside
-        Decision Making & Goal Setting Cohorts 3 & 4. Parents witness what focused, intentional work produces —
-        and students leave with something they built, not just something they learned.
+        After days of focused practice, learning, and expressing themselves, students come together to present what they've created. On <strong>31st May</strong> and <strong>14th June</strong>, we invite families and friends to be part of this special moment when students from both intensives, across all age groups, will share the stage. You'll see them perform, express, and step into a new version of themselves.
       </p>
     </div>
   </section>
@@ -1147,45 +1231,88 @@
     <div class="container">
       <h2>Frequently Asked Questions</h2>
 
-      <div class="faq-item">
-        <div class="faq-question">[Acting + Theater] What ages is this for?</div>
-        <div class="faq-answer">
-          <p>Ages 6–14, split into Junior (6–8) and Senior (8–14) cohorts. Both age groups run during both sessions (May 18–31 and June 1–14), so you can choose the dates that work for your family.</p>
+      <!-- Acting & Drama FAQs -->
+      <div style="margin-bottom: 40px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ce-orange); letter-spacing: 0.1em; margin-bottom: 24px; text-transform: uppercase; border-bottom: 2px solid var(--ce-orange); padding-bottom: 8px; display: inline-block;">
+          Acting & Drama Intensive
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What ages is this for?</div>
+          <div class="faq-answer">
+            <p>Ages 6–14, split into Junior (6–8) and Senior (8–14) cohorts. Both age groups run during both sessions (May 18–31 and June 1–14), so you can choose the dates that work for your family.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Is it compulsory for my child to appear for the Trinity Speech & Drama exam after attending the intensive?</div>
+          <div class="faq-answer">
+            <p>No, it is not compulsory. This intensive is designed in alignment with the Trinity College London Speech & Drama curriculum, so your child will build the right skills and foundation. However, appearing for the exam and getting certified is completely optional. The decision is entirely up to you and your child.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Will this course give my child a certificate from Trinity College London?</div>
+          <div class="faq-answer">
+            <p>No, this course does not directly provide a certificate from Trinity College London. This is a preparatory intensive, which means it helps your child get ready for the Trinity exams. If your child would like to receive a Trinity certificate, they can register for an official Trinity exam (online or at a centre) and appear for the assessment separately. Our theatre educator can guide and support you through this process. After completing the intensive, your child will receive a certificate from the school.</p>
+          </div>
         </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">[Decision Making] What ages is this for?</div>
-        <div class="faq-answer">
-          <p>Ages 10+, with mixed cohorts. Same exercises, different complexity. Younger students (10–13) get more guidance and visual tools. Older students (14–18) work independently and naturally mentor younger ones. The physics concepts work across all ages.</p>
+      <!-- Decision Making FAQs -->
+      <div style="margin-bottom: 40px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ce-orange); letter-spacing: 0.1em; margin-bottom: 24px; text-transform: uppercase; border-bottom: 2px solid var(--ce-orange); padding-bottom: 8px; display: inline-block;">
+          Decision Making & Goal Setting Intensive
         </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What ages is this for?</div>
+          <div class="faq-answer">
+            <p>Ages 10+, with mixed cohorts. Younger students (10–13) get more guidance and visual tools. Older students (14–18) work independently and get leadership opportunities within the cohort.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">My child is already smart. Is this still valuable?</div>
+          <div class="faq-answer">
+            <p>Absolutely. This isn't academic tutoring. It's decision-making and goal-setting. Many high-achievers excel at following directions but struggle with independent direction. This teaches them to be the author of their own life, not just a high-performing follower.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What if my child doesn't know what they want?</div>
+          <div class="faq-answer">
+            <p>Perfect. Day 2 is specifically designed for this — we use "Thought Experiments" to explore possibilities before committing. Many students come in uncertain and leave with clarity. The process itself reveals what matters to them.</p>
+          </div>
+        </div>
+
+	<div class="faq-item">
+          <div class="faq-question">Will my child get individual attention?</div>
+          <div class="faq-answer">
+            <p>The Cohorts are group session, but we will be doing One-on-One sessions with the students either during the session itself or post the session, incase they need more help. These can be scheduled online as well. </p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">[Decision Making] My child is already smart. Is this still valuable?</div>
-        <div class="faq-answer">
-          <p>Absolutely. This isn't academic tutoring. It's decision-making and goal-setting. Many high-achievers excel at following directions but struggle with independent direction. This teaches them to be the author of their own life, not just a high-performing follower.</p>
+      <!-- General FAQs -->
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ce-orange); letter-spacing: 0.1em; margin-bottom: 24px; text-transform: uppercase; border-bottom: 2px solid var(--ce-orange); padding-bottom: 8px; display: inline-block;">
+          General Questions
         </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-question">[Decision Making] What if my child doesn't know what they want?</div>
-        <div class="faq-answer">
-          <p>Perfect. Day 2 is specifically designed for this — we use "thought experiments" to explore possibilities before committing. Many students come in uncertain and leave with clarity. The process itself reveals what matters to them.</p>
+        <div class="faq-item">
+          <div class="faq-question">What if my child misses a day?</div>
+          <div class="faq-answer">
+            <p>Each day builds on the previous. Missing one day is manageable (we provide catch-up materials). Missing two or more significantly impacts the experience. We recommend committing to all days.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-question">[Both Programs] What if my child misses a day?</div>
-        <div class="faq-answer">
-          <p>Each day builds on the previous. Missing one day is manageable (we provide catch-up materials). Missing two or more significantly impacts the experience. We recommend committing to all days.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">[Both Programs] Can my child do both programs?</div>
-        <div class="faq-answer">
-          <p>Yes! Students 10+ can enroll in both. They'd attend the Decision Making & Goal Setting Cohort 2 (May 25–31) which overlaps with the second week of Acting + Theater (May 18–31). Or Cohort 4 (June 8–14) which overlaps with the second week of Acting + Theater (June 1–14). They get the full experience: theater in the mornings, decision-making in the afternoons.</p>
+        <div class="faq-item">
+          <div class="faq-question">Can my child do both programs?</div>
+          <div class="faq-answer">
+            <p>Yes! Students 10+ can enroll in both. They get the full experience: decision-making in the mornings, theatre and drama in the afternoons.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1195,19 +1322,25 @@
   <section class="enrollment" id="enroll">
     <div class="container">
       <div style="margin-bottom: 32px;">
-        <img src="uday-waldorf-logo.png" alt="Uday Waldorf School" style="height: 60px; width: auto;">
+        <img src="uday-waldorf-logo.png" alt="Uday Waldorf Inspired School" style="width: 180px; height: auto; margin: 0 auto; display: block;">
       </div>
       <h2>Choose Your Program</h2>
-      <p class="enrollment-subtitle">Two paths. One finale. What will your child build?</p>
+      <p class="enrollment-subtitle">or choose both.</p>
 
       <div class="pricing-cards">
         <div class="pricing-card">
           <div class="pricing-card-header">
             <div>
-              <h3>Acting + Theater</h3>
-              <div class="tagline">13 Days · Trinity College London</div>
+              <h3>Acting & Drama</h3>
+              <div class="tagline">13 Days · Trinity Drama Preparation</div>
             </div>
-            <div class="price">₹8,500</div>
+            <div style="text-align: right;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--ce-mid-gray); text-decoration: line-through;">₹8,500</div>
+              <div class="price" style="color: var(--ce-orange);">₹8,000</div>
+            </div>
+          </div>
+          <div style="background: rgba(242, 101, 34, 0.2); border: 1px solid var(--ce-orange); border-radius: 4px; padding: 8px 12px; margin-bottom: 16px; text-align: center;">
+            <span style="color: var(--ce-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600;">⚡ EARLY BIRD — Valid until May 10, 2026</span>
           </div>
           <ul class="pricing-features">
             <li>Junior (6–8) or Senior (8–14) cohort</li>
@@ -1222,15 +1355,22 @@
           <div class="pricing-card-header">
             <div>
               <h3>Decision Making & Goal Setting</h3>
-              <div class="tagline">7 Days · Physics-Based Models</div>
+              <div class="tagline">7 Days · Mental Models used by Elite Entrepreneurs</div>
             </div>
-            <div class="price">₹5,500</div>
+            <div style="text-align: right;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--ce-mid-gray); text-decoration: line-through;">₹5,500</div>
+              <div class="price" style="color: var(--ce-orange);">₹5,000</div>
+            </div>
+          </div>
+          <div style="background: rgba(242, 101, 34, 0.2); border: 1px solid var(--ce-orange); border-radius: 4px; padding: 8px 12px; margin-bottom: 16px; text-align: center;">
+            <span style="color: var(--ce-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600;">⚡ EARLY BIRD — Valid until May 10, 2026</span>
           </div>
           <ul class="pricing-features">
             <li>Ages 10+ · 4 cohorts to choose from</li>
-            <li>7 physics-based decision tools</li>
-            <li>Bound Annual Plan Journal</li>
-            <li>Living Calendar + Review System</li>
+            <li>7 decision tools used by Elite Founders and Entrepreneurs</li>
+            <li>Bullet Journal</li>
+            <li>Annual Calendar</li>
+	<li>Review System</li>
             <li>Final showcase presentation</li>
           </ul>
         </div>
@@ -1241,24 +1381,31 @@
               <h3>Both Programs</h3>
               <div class="tagline">Full Experience · Ages 10+</div>
             </div>
-            <div class="price">₹14,000</div>
+            <div style="text-align: right;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--ce-mid-gray); text-decoration: line-through;">₹14,000</div>
+              <div class="price" style="color: var(--ce-orange);">₹13,000</div>
+            </div>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.15); border: 1px solid var(--ce-orange); border-radius: 4px; padding: 8px 12px; margin-bottom: 16px; text-align: center;">
+            <span style="color: var(--ce-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600;">⚡ EARLY BIRD — Valid until May 10, 2026</span>
           </div>
           <ul class="pricing-features">
             <li>Everything in both programs</li>
-            <li>Theater mornings + Decision afternoons</li>
+            <li>Decision Making mornings + Theatre afternoons</li>
             <li>Two deliverables: Performance + Plan</li>
+            <li>Best value and Impact</li>
           </ul>
         </div>
       </div>
 
       <!-- Single CTA -->
-      <a href="https://rzp.io/rzp/summerintensive" class="btn btn-primary" style="font-size: 1rem; padding: 20px 60px;">
+      <a href="https://pages.razorpay.com/summerintensive" target="_blank" class="btn btn-primary" style="font-size: 1rem; padding: 20px 60px;">
         Enroll Now
       </a>
 
       <p class="enrollment-meta">
-        Summer Intensives at Uday Waldorf School, Jaipur.<br>
-        Questions? <a href="https://wa.me/918742017911">WhatsApp</a> or <a href="mailto:atray1a@gmail.com">email</a>
+        Summer Intensives at Uday Waldorf Inspired School, Jaipur.<br>
+        Questions? <a href="https://wa.me/918742017911" target="_blank">WhatsApp</a> or <a href="mailto:atray1a@gmail.com">email</a>
       </p>
     </div>
   </section>
@@ -1267,21 +1414,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 32px; flex-wrap: wrap;">
-        <div style="text-align: center;">
-          <div style="width: 100px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
-            <span style="font-size: 0.65rem; color: var(--ce-mid-gray);"><img src="uday-waldorf-logo.png" alt="Uday Waldorf School" style="height: 60px; width: auto;"></span>
-          </div>
-          <div style="font-size: 0.75rem; color: var(--ce-mid-gray);">Uday Waldorf School</div>
-        </div>
-        <div style="text-align: center;">
-          <div style="width: 100px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
-            <span style="font-size: 0.65rem; color: var(--ce-mid-gray);"><img src="cosmic-essence-logo.png" alt="Cosmic Essence Education" style="height: 60px; width: auto;"></span>
-          </div>
-          <div style="font-size: 0.75rem; color: var(--ce-mid-gray);">Cosmic Essence Education</div>
-        </div>
-      </div>
-      <p>© 2026 Uday Waldorf School × Cosmic Essence Education × Kautilya Jain</p>
+      <p>© 2026 Uday Waldorf Inspired School × Cosmic Essence Education × Kautilya Jain</p>
     </div>
   </footer>
 
